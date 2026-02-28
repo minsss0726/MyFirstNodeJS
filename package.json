@@ -1,17 +1,31 @@
 {
   "name": "myfirstnodejs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Node.js + Express + Prisma + MariaDB Memo API (Backend)",
+  "type": "module",
+  "main": "dist/server.js",
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon --exec ts-node src/server.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "dependencies": {
+    "@prisma/client": "^6.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  },
   "devDependencies": {
-    "@types/node": "^25.3.2",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "nodemon": "^3.1.7",
+    "prisma": "^6.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
