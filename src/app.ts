@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express, { type Express, type Request, type Response, type NextFunction } from "express";
+import memoRoutes from "./routes/memo.routes.js";
 
 const app: Express = express();
 
@@ -21,7 +22,7 @@ app.get("/health", (_req: Request, res: Response) => {
   res.json({ success: true, data: { status: "ok" } });
 });
 
-// TODO: routes 적용 예) app.use("/memos", memoRoutes);
+app.use("/memos", memoRoutes);
 
 // 404 처리
 app.use((_req: Request, res: Response) => {
